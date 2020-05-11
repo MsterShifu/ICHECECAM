@@ -1,0 +1,46 @@
+
+    <%- include('header.ejs') %>
+<div class="container p-5">
+  <h2 class="introsignup">Vendez ici votre skin et gagnez de l'argent!</h2>
+  <form action="/skin/save" method="post">
+    <div class="infosignup">
+        <label for="name" class="nomdescases">Nom du skin:</label>
+        <input type="text" class="form-control" id="name" placeholder="Armure de niveau 52" name="name" required>
+    </div>    
+    <div class="infosignup">
+        <label for="jeu" class="nomdescases">Jeu:</label>
+        <input type="text" class="form-control" id="jeu" placeholder="Sonic" name="jeu" required>
+    </div>
+    <div class="infosignup">
+        <label for="prix" class="nomdescases">Prix:</label>
+        <input type="number" class="form-control" id="pwd" placeholder="5 euros" name="prix" required>
+    </div>
+    <!--div class="infosignup">
+        <label for="idcateg" class="nomdescases">Catégorie: (1 = ancien , 2 = récent, 3 = neuf)</label>
+        <input type="text" class="form-control" id="categ" placeholder="2" name="idcateg" required>
+    </div-->
+    <div class="infosignup">
+        <label for="idcateg" class="nomdescases">Catégorie   :   (1 = ancien , 2 = récent, 3 = neuf)&nbsp&nbsp&nbsp&nbsp</label>
+            <select id="idcateg" name="idcateg" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+    </div>
+    <div class="infosignup">
+        <label for="idrare" class="nomdescases">Catégorie   :   (1 = Commun , 2 = Peu commun, 3 = Rare, 4 = Mythique)&nbsp&nbsp&nbsp&nbsp</label>
+            <select id="idrare" name="idrare" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+    </div>
+    <div class="login">
+    <button type="submit" class="btn btn-primary" class="login">Soumettre le skin</button>
+</div>
+</form>
+
+</div>
+</br></br></br></br></br>
+<%- include('footer.ejs') %>

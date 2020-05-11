@@ -1,0 +1,34 @@
+
+    <%- include('header.ejs') %>
+
+</br></br></br>
+<div><h1 class="introitempage">Profil SkinFarmers de : <%= user.first_name %> <%= user.last_name %> </h1></div>
+</br>
+</br> 
+<div class="imageskin">
+    <span class="espacement"><img src="/css/profil.jpg" class="imgskin"></span>
+</br>
+    <ul class="prixjeu">
+    </br>
+        <li style="list-style: none;">Pseudo sur SkinFarmers :<strong> <%= user.user_name %> </strong> &nbsp;</li>
+    </br>
+    </br>
+        <li style="list-style: none;">Prénom encodé :  <strong> <%= user.first_name %> </strong> &nbsp;</li>
+    </br>
+    </br>
+    <li style="list-style: none;">Nom encodé :  <strong> <%= user.last_name %> </strong> &nbsp;</li>
+    </br>
+    </br>
+    <li style="list-style: none;">Adresse mail: <strong> <%= user.email_ad %> </strong> &nbsp;</li>
+    </br>
+    </br>
+    <li style="list-style: none;">Type de compte :  <strong> <%= user.isadm %> </strong> &nbsp;</li>
+    </br>
+    </br>
+        <li style="list-style: none; text-align: center;"><a href="/profil/update/<%= user.id %>" class="btn btn-sm btn-primary">Modifier</a></li>
+    </br>
+    </br>
+    </ul>
+</div>   
+
+    <%- include('footer.ejs') %>

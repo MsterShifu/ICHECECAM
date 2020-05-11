@@ -1,0 +1,34 @@
+
+    <%- include('header.ejs') %>
+</br></br></br></br></br>
+<h1 class="introcart">Voici votre panier</h1>
+</br>
+<!-- test -->
+<div class="cartt">
+    <% if (products) { %>
+        <div>
+            <ul class="cartentier">
+                    <% for(var i=0 ; i<products.length ; i++) { %>
+                <li class="itemm">
+                    <div>
+                        <strong class="nomskin"><%= products[i].skin.name %></strong> &nbsp;
+                    <div>
+                        &nbsp; QUANTITE : <%= products[i].quantity %> &nbsp;
+                        PRIX : <%= products[i].skin.prix %> Euros &nbsp;
+                        <a href="/removeCart/<%= products[i].skin.id %>" class="btn btn-sm btn-success"></i> Supprimer du panier </a>
+                    </div>
+                </li>
+                    <% } %>
+            </ul>
+        </div>
+        <div class="col-sm-12">
+            <strong class="itemm">Total: <%= totalPrice %> Euros</strong>
+        <hr>
+            <a href="/logout" type="button" class="btn btn-warning">Procéder au paiement</a></br></br>
+        </div>
+        <% } else { %>
+        Your shopping cart is empty.
+        <% } %>
+</div>
+
+<%- include('footer.ejs') %>

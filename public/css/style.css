@@ -1,0 +1,272 @@
+body
+{
+    background: url('test.png') no-repeat; 
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.boutonfooter {
+        padding-left: 0px;
+        list-style: none;
+      }
+
+.footerr {
+        padding: 40px 0;
+        background-color: #241e2d;
+        color: white; /*gère la couleur du copyright en bas*/
+        text-align: center;
+        opacity: 98%;
+        position : fixed;
+        left : 0;
+        bottom : 0;
+        width: 100%;
+        border-top: black solid;
+      }
+      
+.footerr ul {
+        padding: 0;
+        list-style: none;
+        text-align: center;
+        font-size: 18px;
+        line-height: 1.6;
+        margin-bottom: 0;
+      }
+
+.footerr li {
+        padding: 0 10px;
+      }
+           
+
+      
+ul {
+        margin-top: 0;
+        margin-bottom: 1rem;
+      }
+
+.bouton {
+    margin-right: .5rem;
+    display: inline-block;
+}
+
+.intro {
+    text-align: center;
+    padding: -95px 2;
+    background-color: #2f2c3d;
+    font-size: 20px;
+    color: white; 
+    border-top: solid black;
+    border-bottom: solid black;
+    opacity: 80%;
+}
+
+nav {
+    background: url('footer1.jpg') no-repeat; 
+    background-attachment: fixed;
+    background-size: cover;
+    opacity: 98%;
+    border-bottom: black solid;
+    border-top: solid black;
+}
+
+nav a { /*gère le logo skinfarmerz*/
+    color: #d3d3d3;
+}
+
+.skinfarmers {
+    display: inline-block;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+}
+
+.navbouton {
+    display: block;
+    padding: .5rem 1rem;
+    color: goldenrod;
+}
+
+.navboutonergo {
+    display: block;
+    padding: .5rem 1rem;   
+    color: goldenrod;
+}
+
+ul.boutonfooter a {
+    color: goldenrod!important;
+}
+
+form {
+    margin-top: 2em;
+    background-color: #cac8c2;
+}
+
+
+#Lesskins {
+    border-radius: 10px;
+    margin-bottom: 200px;
+    min-height: 400px;
+}
+
+.titreadd {
+    color: #282536;
+}
+
+.titreproduit {
+    text-align: center;
+    color: #282536;
+    background-color: #241e2d;
+}
+
+.cartt {
+    text-align: center;
+    background-color: #282536;
+}
+
+.introcart {
+    text-align: center;
+    background-color: #282536;
+    color: #c1c1c1;
+}
+
+.itemm {
+    display: block;
+    color: #c1c1c1;
+    padding-top: 1rem;
+}
+
+.nomskin {
+    color: goldenrod;
+}
+
+
+.textintroregister {
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.infos {
+    display: block;
+}
+
+.listtt {
+    display: block;
+    text-align: center;
+}
+
+#loginbox {
+    text-align: center;
+}
+
+.introsignup {
+    font-size: larger;
+    font-family: Arial ;
+    background-color: #282536;
+    opacity: 80%;
+    border-top: black solid;
+    border-bottom: black solid;
+    color: goldenrod;
+    text-align: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border: 2rem; 
+}
+
+.pascompte {
+    border-top: 1px solid#888;
+    color: goldenrod; 
+    padding-top:15px; 
+    font-size:85%;
+    padding-bottom: 1rem;
+    text-align: right;
+}
+
+.login {
+    text-align: center;
+}
+
+.infologin {
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.infosignup {
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+form {
+    background-color: #282536;
+    opacity: 80%;
+    border: black solid;
+    border-bottom: black solid;
+
+}
+
+.nomdescases {
+    color: #c1c1c1;
+    font-family: Arial;
+    padding-left: 1rem;
+}
+
+.cases {
+    display: block;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+}  
+
+input.cases {
+    text-align: center;
+}
+
+.imgskin {
+    max-width : 350px;
+}
+
+.imageskin {
+    display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.espacement {
+	margin-right: 20px;
+}
+
+.prixjeu {
+    background-color: #8296c7;
+    opacity: 90%;
+
+}
+
+.introitempage {
+        font-size: larger;
+        font-family: Arial ;
+        background-color: #282536;
+        opacity: 80%;
+        border-top: black solid;
+        border-bottom: black solid;
+        color: rgb(255, 255, 255);
+        text-align: center;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        border: 2rem; 
+}
+
+/*.navbari {
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: .5rem 1rem;
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}

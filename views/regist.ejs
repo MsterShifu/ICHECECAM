@@ -1,0 +1,58 @@
+
+<%- include('header.ejs') %>
+<body>
+    <div class="container p-5">                               
+                            <div class="introsignup">S'inscrire sur SkinFarmers</div>
+                            <form role="form" method="post" action="/signup" onSubmit="return checkblank(this);">
+                                <% if (message.length > 0) { %>
+                            <div class="nomdescases"><%= message %></div><% } %>
+                                <div id="signupalert" style="display:none" class="alert alert-danger">
+                                    <p>Error:</p>
+                                    <span></span>
+                                </div>
+                                <div class="infosignup">
+                                    <label for="first_name" class="nomdescases">Prénom</label>
+                                    <div class="cases">
+                                        <input type="text" class="cases" name="first_name" placeholder="Martin" required>
+                                    </div>
+                                </div>
+                                <div class="infosignup">
+                                    <label for="last_name" class="nomdescases">Nom</label>
+                                    <div class="cases">
+                                        <input type="text" class="cases" name="last_name" placeholder="Dupont" required>
+                                    </div>
+                                </div>
+                                <div class="infosignup">
+                                    <label for="email_ad" class="nomdescases">Adresse email</label>
+                                    <div class="cases">
+                                        <input type="email" class="cases" name="email_ad" placeholder="nadine@dupont.be" required>
+                                    </div>
+                                </div>
+                                <div class="infosignup">
+                                    <label for="user_name" class="nomdescases">Pseudo</label>
+                                    <div class="cases">
+                                        <input type="text" class="cases" name="user_name" placeholder="Votre pseudo" required>
+                                    </div>
+                                </div>
+                                <div class="infosignup">
+                                    <label for="password" class="nomdescases">Mot de passe (minimum 6 caractères)</label>
+                                    <div class="cases">
+                                        <input type="password" class="cases" name="password" placeholder="Mot de passe" required>
+                                    </div>
+                                </div>
+                                <div class="infosignup">
+                                    <label for="isadm" class="nomdescases">Utilisateur ou Admin ?</label>
+                                    <div class="cases">
+                                        <input type="text" class="cases" name="isadm" placeholder="Utilisateur" required>
+                                    </div>
+                                </div>
+                                <div class="infosignup"></div>
+                                    <!-- Button -->                                       
+                                    <div class="login">
+                                        <button id="login" type="submit" class="btn btn-info"> &nbsp S'inscrire</button>    
+                                    </div>
+                                </div>   
+                            </form>
+         </div>
+    </div>
+    <%- include('footer.ejs') %>

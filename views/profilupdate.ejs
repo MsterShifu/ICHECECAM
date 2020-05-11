@@ -1,0 +1,39 @@
+<%- include('header.ejs') %>
+
+
+<div class="container p-5">
+    <h2 class="introsignup">Vous voulez modifier une info relative à votre compte ?</br> Il est nécessaire de se reconnecter pour que les changements soient effectifs.</h2>
+    <form action="/profil/update" method="post">
+      <input type="hidden" value="<%= user.id %>" name="id">
+      <div class="infosignup">
+          <label for="first_name"class="nomdescases">Prénom</label>
+          <input type="text" class="form-control" id="first_name" placeholder="Entrer prénom" value="<%= user.first_name %>" name="first_name" required>
+      </div>    
+      <div class="infosignup">
+          <label for="last_name" class="nomdescases"> Nom</label>
+          <input type="text" class="form-control" id="last_name" placeholder="Entrer nom" value="<%= user.last_name %>" name="last_name" required>
+      </div>
+      <div class="infosignup">
+          <label for="email_ad" class="nomdescases">Adresse mail</label>
+          <input type="email" class="form-control" id="pwd" placeholder="Entrer email" value="<%= user.email_ad %>" name="email_ad" required>
+      </div>
+      <div class="infosignup">
+        <label for="user_name" class="nomdescases">Pseudo (nécessaire pour se connecter)</label>
+        <input type="text" class="form-control" id="pwd" placeholder="Entrer pseudo" value="<%= user.user_name %>" name="user_name" required>
+    </div>
+      <div class="login">
+      <button type="submit" class="btn btn-primary">Envoyer</button>
+  </div>
+  </div>
+  </form>
+
+
+
+
+
+
+
+
+
+
+<%- include('footer.ejs') %>

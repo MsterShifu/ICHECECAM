@@ -1,0 +1,33 @@
+
+<%- include('header.ejs') %>
+
+</br></br></br>
+<div><h1 class="introitempage">Nom du skin sélectionné : <%= user.name %></h1></div><!-- pour appeler le nom du skin sélectionné-->
+</br>
+</br> 
+<div class="imageskin">
+    <span class="espacement"><img src="/css/skinpic.png" class="imgskin"></span>
+</br>
+    <ul class="prixjeu">
+    </br>
+        <li style="list-style: none;">Prix du skin, selon le vendeur :<strong> <%= user.prix %> euros</strong> &nbsp;</li>
+    </br>
+    </br>
+        <li style="list-style: none;">Le skin est jouable sur le jeu suivant : <strong> <%= user.jeu %> </strong> &nbsp;</li>
+    </br>
+    </br>
+        <li style="list-style: none; text-align: center;"><a href="/cart/<%= user.id %>" style=" font-size: 20px;" class="btn btn-sm btn-primary">Ajouter au panier</a></li>
+    </br>
+    </br>
+    </ul>
+</div>   
+<%- include('footer.ejs') %>
+
+<!--
+	<div class="circuit0">
+        <span class="espacement"><img src="images/albert.jpg" alt="Albert Park" title="Albert Park"/></span>
+
+	<p>
+
+        Albert Park Circuit, officiellement nommé Melbourne Grand Prix Circuit, est un circuit de rue autour d’un lac à Melbourne.
+    </p></div>-->

@@ -1,0 +1,51 @@
+
+    <%- include('header.ejs') %>
+
+<div class="intro">
+</br>
+<input type="text" id="Larecherche" onkeyup="Recherche()" placeholder="Recherchez un skin...">
+<!-- <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.."> barre de recherche--> 
+</br></br>
+
+<p>Voici les skins actuellement en vente</p>
+</div>
+<div class="container" id="Lesskins">
+
+ <!--h2><%= title %></h2>-->
+</br></br>
+  <a href="/skin/add" class="btn btn-sm btn-primary">Mettre en vente un skin</a><br/>
+  <table id="Lesskins2" class="table table-dark table-striped">
+    <thead>
+      <tr>
+        <th>Nom du skin</th>
+        <th>Jeu concerné</th>
+        <th>Prix (euros)</th>
+        <th>Catégorie</th>
+        <th>Rareté</th>
+        <!--th>Description</th-->
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% skins.forEach(function(jc){ %>
+            <tr>
+                <td><%= jc.name %></td>
+                <td><%= jc.jeu %></td>
+                <td><%= jc.prix %> euros</td>
+                <td><%= jc.nomcateg %></td>
+                <td><%= jc.NameRare %></td>
+                <!--td><%= jc.description %></td-->
+
+                <td>
+                    <a href="/skin/get/<%= jc.id %>" class="btn btn-sm btn-primary">Voir</a>
+                    <!-- <a href="delete/<%= jc.id %>" class="btn btn-sm btn-danger">Acheter</a> pour l'instant ça supprime -->
+                    <a href="/cart/<%= jc.id %>" class="btn btn-sm btn-success">Acheter</a>
+                </td>
+            </tr>
+        <% }); %>
+
+        
+    </tbody>
+</div>
+</br>
+<%- include('footer.ejs') %>
