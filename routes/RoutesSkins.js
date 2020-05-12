@@ -20,7 +20,7 @@ router.post('/skin/save', skinController.SkinSave);
 
 router.get('/skin/edit/:userId', skinController.SkinEdit);
 
-router.put('/skin/update', skinController.updateSkin);
+router.post('/skin/update', skinController.updateSkin);
 
 router.get('/skin/delete/:userId', skinController.SkinDelete);
 

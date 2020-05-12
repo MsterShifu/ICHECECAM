@@ -1,5 +1,5 @@
 const mysqlConnection = require("../connection.js");
-
+var Userz = require('../models/userCompte.js');
 
 exports.login = function(req, res){
    var message = '';
@@ -30,14 +30,19 @@ exports.loginNow = function(req, res){
    });
 };
 
- exports.signup = function(req, res){
-   let data = {user_name: req.body.user_name, password: req.body.password, first_name: req.body.first_name, last_name: req.body.last_name, email_ad: req.body.email_ad, isadm: req.body.isadm};
-   let sql = "INSERT INTO utils SET ?";      
-   let query = mysqlConnection.query(sql, data,(err, result)=>{
-      if(err) throw err;
-      res.redirect('/');
-  });
-};
+
+exports.signup = function (req, res) {
+   let userz = new Userz(req.body.id, req.body.first_name, req.body.last_name, req.body.email_ad, req.body.user_name, req.body.password, req.body.isadm);
+   console.log(userz);
+   mysqlConnection.query("INSERT INTO utils SET?", 
+       userz, function (err, results) {
+           if (err) {
+               res.status(400).send(error);
+           } else {
+               res.status(200).redirect('/');
+           }
+       });
+   };
 
 exports.signupNow = function(req, res){
    res.render('regist.ejs', {
@@ -57,7 +62,7 @@ exports.logout = function(req,res){
        }  
    });  
  };  
-//test
+
 exports.profilUpdate = function (req, res) {
    const userId = req.params.userId;
    let sql = `Select * from utils where id = ${userId}`; // id = nom clé primaire dans la bd, userId est lié au server
@@ -70,25 +75,25 @@ exports.profilUpdate = function (req, res) {
    });
 };
 
+
 exports.updateProfil = function (req, res) {
-   const userId = req.body.id;
-   let sql = "update utils SET first_name='"+req.body.first_name+"', last_name='"+req.body.last_name+"', email_ad='"+req.body.email_ad+"', user_name='"+req.body.user_name+"' where id ="+userId;
-   let query = mysqlConnection.query(sql,(err, results)=>{
-       if(err) throw err;
-       res.redirect('/profil');
-   });
+   let userz = new Userz(req.body.id, req.body.first_name, req.body.last_name, req.body.email_ad, req.body.user_name);
+   console.log(userz);
+   mysqlConnection.query("update utils SET first_name='"+req.body.first_name+"', last_name='"+req.body.last_name+"', email_ad='"+req.body.email_ad+"', user_name='"+req.body.user_name+"' where id ="+req.body.id,
+       [userz, req.body.id], function (err, results) {
+           if (err) {
+               console.log(error);
+               res.status(400).send(error);
+           } else {
+               res.status(202).redirect('/profil');
+           }
+       })
 };
 
 
 
 
 
-
-
-//test
-exports.index = function(req, res){
-    var message = '';
-  res.render('index',{message: message})};
 
 exports.profil = function(req, res, next){
 	var user =  req.session.user,

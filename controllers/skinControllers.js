@@ -1,13 +1,8 @@
 const mysqlConnection = require("../connection.js");
+let Skin = require('../models/skinsmodel.js');
 
-exports.updateSkin = function (req, res) {
-    const userId = req.body.id;
-    let sql = "update skins SET name='"+req.body.name+"', jeu='"+req.body.jeu+"', prix='"+req.body.prix+"' where id ="+userId;
-    let query = mysqlConnection.query(sql,(err, results)=>{
-        if(err) throw err;
-        res.redirect('/');
-    });
-};
+
+
 
 exports.mainrender = function (req, res) {
     // res.send('bienvenue chez moiiii');
@@ -50,13 +45,41 @@ exports.SkinAdd = function (req, res) {
     });
 };
 
+//exports.SkinSavee = function (req, res) {
+//    let skin = new Skin(req.body.id, req.body.name, req.body.prix, req.body.jeu, req.body.idcateg, req.body.idrare);
+//    let data = {name: req.body.name, jeu: req.body.jeu, prix: req.body.prix, idcateg: req.body.idcateg, idrare: req.body.idrare};
+//    let sql = "INSERT INTO skins SET?";
+//    let query = mysqlConnection.query(sql, data,(err, results)=>{
+//        if(err) throw err;
+//        res.redirect('/');
+//    });
+//};
+
 exports.SkinSave = function (req, res) {
-    let data = {name: req.body.name, jeu: req.body.jeu, prix: req.body.prix, idcateg: req.body.idcateg, idrare: req.body.idrare};
-    let sql = "INSERT INTO skins SET?";
-    let query = mysqlConnection.query(sql, data,(err, results)=>{
-        if(err) throw err;
-        res.redirect('/');
-    });
+    let skin = new Skin(req.body.id, req.body.name, req.body.prix, req.body.jeu, req.body.idcateg, req.body.idrare);
+    console.log(skin);
+    mysqlConnection.query("INSERT INTO skins SET?", 
+        skin, function (err, results) {
+            if (err) {
+                res.status(400).send(error);
+            } else {
+                res.status(200).redirect('/');
+            }
+        });
+    };
+
+exports.updateSkin = function (req, res) {
+    let skin = new Skin( req.body.id, req.body.name, req.body.prix, req.body.jeu);
+    console.log(skin);
+    mysqlConnection.query("update skins SET name='"+req.body.name+"', jeu='"+req.body.jeu+"', prix='"+req.body.prix+"' where id ="+req.body.id,
+        [skin, req.body.id], function (err, results) {
+            if (err) {
+                console.log(error);
+                res.status(400).send(error);
+            } else {
+                res.status(202).redirect('/');
+            }
+        })
 };
 
 exports.SkinEdit = function (req, res) {
