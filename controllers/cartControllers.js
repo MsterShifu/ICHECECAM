@@ -16,7 +16,7 @@ exports.cartId = function(req, res, next) {
     return skin.id == productId;
 });
 console.log(product[0]);
-cart.add(product[0], productId);
+cart.skinsAdd(product[0], productId);
 req.session.cart = cart;
 res.redirect('/');
 };
@@ -31,7 +31,7 @@ exports.cart = function(req, res, next) {
     var cart = new Cart(req.session.cart);
     res.render('cart', {
       title: 'manulos',
-      products: cart.getskins(),
+      products: cart.skinsGet(),
       totalPrice: cart.totalPrice
     });
 };
@@ -40,7 +40,7 @@ exports.RemoveCart = function(req, res, next) {
     var productId = req.params.id;
     var cart = new Cart(req.session.cart ? req.session.cart : {});
   
-    cart.remove(productId);
+    cart.skinsRemove(productId);
     req.session.cart = cart;
     res.redirect('/cart');
  };

@@ -115,9 +115,4 @@ exports.SkinGet = function (req, res) {
     });
 };
 
-exports.cart = function (req, res) {
-    res.render('cart', {
-        title : 'cart',
-    } )
-}; 
 

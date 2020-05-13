@@ -7,7 +7,7 @@ const loginController = require('../controllers/loginControllers.js');
 const footerController = require('../controllers/footerControllers.js');
 const skinControllerApi = require ('../controllers/skinControllersApi.js');
 const loginControllerApi = require ('../controllers/loginControllersApi');
-var Cart = require('../models/cart');
+
 
 
 // ROUTES SKINS

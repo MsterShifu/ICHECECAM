@@ -8,7 +8,6 @@ const http = require('http');
 const mysqlConnection = require("./connection.js");
 var router = express.Router();
 var session = require('express-session');
-var logger = require('morgan'); //utilisateurs login
 var cookieParser = require('cookie-parser');
 
 
@@ -18,7 +17,6 @@ app.set('views',path.join(__dirname,'views'));
 			
 //set view engine
 app.set('view engine', 'ejs');
-app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
