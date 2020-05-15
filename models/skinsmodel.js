@@ -1,3 +1,5 @@
+
+//CLASSE NECESSAIRE A LA CONSTRUCTION D'UN PRODUIT (SKIN)
 class Skin {
     constructor (id, name, prix, jeu, idcateg, idrare)
     {

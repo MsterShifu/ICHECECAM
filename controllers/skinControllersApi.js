@@ -1,9 +1,8 @@
 const mysqlConnection = require("../connection.js");
 let Skin = require('../models/skinsmodel.js');
 
-//ok
+//API ok
 exports.api = function (req, res) {
-    // res.send('bienvenue chez moiiii');
     let sql = "SELECT * FROM skins INNER JOIN category WHERE skins.idcateg = category.idcateg";
     let query = mysqlConnection.query(sql, (err, rows) => {
         if(err) {
@@ -18,9 +17,9 @@ exports.api = function (req, res) {
         }
     });
 };
-//ok
 
-// ok
+
+//API ok
 exports.updateSkinApi = function (req, res) {
     let skin = new Skin( req.body.id, req.body.name, req.body.prix, req.body.jeu);
     console.log(skin);
@@ -34,7 +33,7 @@ exports.updateSkinApi = function (req, res) {
             }
         })
 };
-
+//API OK
 exports.SkinSaveApi = function (req, res) {
     let skin = new Skin(req.body.id, req.body.name, req.body.prix, req.body.jeu, req.body.idcateg, req.body.idrare);
     console.log(skin);
@@ -48,7 +47,7 @@ exports.SkinSaveApi = function (req, res) {
         });
     };
 
-//ok
+//API ok
 
 exports.SkinDeleteApi = function (req, res) {
     const userId = req.params.userId;
@@ -62,8 +61,8 @@ exports.SkinDeleteApi = function (req, res) {
         }
     });
 };
-//ok
-//ok
+
+//API ok
 exports.SkinEditApi = function (req, res) {
     const userId = req.params.userId;
     let sql = `SELECT * FROM skins WHERE id = ${userId} `; // id = nom clé primaire dans la bd, userId est lié au server

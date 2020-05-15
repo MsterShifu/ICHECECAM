@@ -54,7 +54,7 @@ exports.profilUpdate = function (req, res) {
   });
 };
 
-
+//API OK
 
 exports.updateProfil = function (req, res) {
     let userz = new Userz(req.body.id, req.body.first_name, req.body.last_name, req.body.email_ad, req.body.user_name);

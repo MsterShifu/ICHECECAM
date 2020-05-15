@@ -3,9 +3,8 @@ let Skin = require('../models/skinsmodel.js');
 
 
 
-
+// POUR AFFICHER LA PAGE HOME
 exports.mainrender = function (req, res) {
-    // res.send('bienvenue chez moiiii');
     let sql = "SELECT * FROM skins INNER JOIN category ON category.idcateg = skins.idcateg INNER JOIN rare ON rare.idRare = skins.idrare";
     let query = mysqlConnection.query(sql, (err, rows) => {
         if(req.session.isadm === 'Admin')
@@ -23,21 +22,7 @@ exports.mainrender = function (req, res) {
     });
 };
 
-
-
-//test
-//exports.categ = function (req, res) {
-//    let sql = "SELECT * FROM test_crud.category";
- //   let query = mysqlConnection.query(sql, (err, rows) => {
- //       if(err) throw err;
-//        res.render('categ', {
-//            title : 'Skins Farmerzzzzzzzz',
-//            category : rows //important les rows
-//        });
-//    });
-//};
-//test
-
+//POUR AFFICHER LA PAGE OU L'ON PEUT AJOUTER UN SKIN EN VENTE
 
 exports.SkinAdd = function (req, res) {
     res.render('skin_add', {
@@ -45,15 +30,7 @@ exports.SkinAdd = function (req, res) {
     });
 };
 
-//exports.SkinSavee = function (req, res) {
-//    let skin = new Skin(req.body.id, req.body.name, req.body.prix, req.body.jeu, req.body.idcateg, req.body.idrare);
-//    let data = {name: req.body.name, jeu: req.body.jeu, prix: req.body.prix, idcateg: req.body.idcateg, idrare: req.body.idrare};
-//    let sql = "INSERT INTO skins SET?";
-//    let query = mysqlConnection.query(sql, data,(err, results)=>{
-//        if(err) throw err;
-//        res.redirect('/');
-//    });
-//};
+// POUR AJOUTER UN SKIN EN VENTE
 
 exports.SkinSave = function (req, res) {
     let skin = new Skin(req.body.id, req.body.name, req.body.prix, req.body.jeu, req.body.idcateg, req.body.idrare);
@@ -68,6 +45,7 @@ exports.SkinSave = function (req, res) {
         });
     };
 
+//POUR UPDATE LES INFOS D'UN SKIN
 exports.updateSkin = function (req, res) {
     let skin = new Skin( req.body.id, req.body.name, req.body.prix, req.body.jeu);
     console.log(skin);
@@ -82,6 +60,7 @@ exports.updateSkin = function (req, res) {
         })
 };
 
+//POR AFFICHER LA PAGE POUR MODIFIER LES INFOS D'UN SKIN
 exports.SkinEdit = function (req, res) {
     const userId = req.params.userId;
     let sql = `SELECT * FROM skins WHERE id = ${userId} `; // id = nom clé primaire dans la bd, userId est lié au server
@@ -94,6 +73,7 @@ exports.SkinEdit = function (req, res) {
     });
 };
 
+//POUR DELETE UN SKIN 
 exports.SkinDelete = function (req, res) {
     const userId = req.params.userId;
     let sql = `DELETE from skins WHERE id = ${userId}`; // id = nom clé primaire dans la bd, userId est lié au server
@@ -103,6 +83,7 @@ exports.SkinDelete = function (req, res) {
     });
 };
 
+//POUR AFFICHER LA PAGE D'UN SKIN
 exports.SkinGet = function (req, res) {
     const userId = req.params.userId;
     let sql = `Select * from skins WHERE id = ${userId}`; // id = nom clé primaire dans la bd, userId est lié au server

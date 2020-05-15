@@ -8,6 +8,7 @@ mysqlConnection.query('SELECT * FROM test_crud.skins', function (err, rows) {
     products = rows;
 });
 
+// CONSTRUCTION DU PANIER EN SESSION
 exports.cartId = function(req, res, next) {
     console.log(products)
     var productId = req.params.id;
@@ -21,7 +22,7 @@ req.session.cart = cart;
 res.redirect('/');
 };
 
-
+//LA PAGE PANIER
 exports.cart = function(req, res, next) {
     if (!req.session.cart) {
       return res.render('cart', {
@@ -30,12 +31,12 @@ exports.cart = function(req, res, next) {
     }
     var cart = new Cart(req.session.cart);
     res.render('cart', {
-      title: 'manulos',
+      title: 'le panier',
       products: cart.skinsGet(),
       totalPrice: cart.totalPrice
     });
 };
-
+// SUPPRIMER LE PANIER
 exports.RemoveCart = function(req, res, next) {
     var productId = req.params.id;
     var cart = new Cart(req.session.cart ? req.session.cart : {});

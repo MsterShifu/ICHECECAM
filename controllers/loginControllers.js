@@ -1,6 +1,7 @@
 const mysqlConnection = require("../connection.js");
 var Userz = require('../models/userCompte.js');
 
+// POUR SE CONNECTER AU SITE WEB PAR SESSION
 exports.login = function(req, res){
    var message = '';
    var sess = req.session; 
@@ -23,14 +24,15 @@ exports.login = function(req, res){
           };
       });
 };
-               
+
+//POUR SE DIRIGER VERS LA PAGE DE LOGIN
 exports.loginNow = function(req, res){
    res.render('index.ejs', {
       message : "Connectez-vous"
    });
 };
 
-
+// POUR S'INSCRIRE SUR LE SITE WEB
 exports.signup = function (req, res) {
    let userz = new Userz(req.body.id, req.body.first_name, req.body.last_name, req.body.email_ad, req.body.user_name, req.body.password, req.body.isadm);
    console.log(userz);
@@ -43,14 +45,14 @@ exports.signup = function (req, res) {
            }
        });
    };
-
+// POUR AFFICHER LA PAGE D'INSCRIPTION
 exports.signupNow = function(req, res){
    res.render('regist.ejs', {
       message : "Inscrivez-vous"
    });
 };
 
-
+// POUR SE DECONNECTER DU SITE WEB
 exports.logout = function(req,res){    
    req.session.destroy(function(err){  
        if(err){  
@@ -62,7 +64,7 @@ exports.logout = function(req,res){
        }  
    });  
  };  
-
+// POUR AFFICHER LES INFORMATIONS DE SON PROFIL ET LES MODIFIER
 exports.profilUpdate = function (req, res) {
    const userId = req.params.userId;
    let sql = `Select * from utils where id = ${userId}`; // id = nom clé primaire dans la bd, userId est lié au server
@@ -75,7 +77,7 @@ exports.profilUpdate = function (req, res) {
    });
 };
 
-
+// POUR UPDATE LES INFORMATIONS DU PROFIL
 exports.updateProfil = function (req, res) {
    let userz = new Userz(req.body.id, req.body.first_name, req.body.last_name, req.body.email_ad, req.body.user_name);
    console.log(userz);
@@ -90,10 +92,7 @@ exports.updateProfil = function (req, res) {
        })
 };
 
-
-
-
-
+//POUR AFFICHER LE PROFIL 
 
 exports.profil = function(req, res, next){
 	var user =  req.session.user,

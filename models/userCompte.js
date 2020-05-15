@@ -1,3 +1,5 @@
+
+//CLASSE NECESSAIRE POUR LA CREATION D'UN USER
 class Userz {
     constructor (id, first_name, last_name, email_ad, user_name, password, isadm)
     {
