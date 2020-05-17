@@ -7,19 +7,19 @@
       <input type="hidden" value="<%= user.id %>" name="id">
       <div class="infosignup">
           <label for="first_name"class="nomdescases">Prénom</label>
-          <input type="text" class="form-control" id="first_name" placeholder="Entrer prénom" value="<%= user.first_name %>" name="first_name" required>
+          <input type="text" class="form-control" id="first_name" placeholder="Entrer prénom" value="<%= user.first_name %>" name="first_name" required aria-label="prénom" autofocus>
       </div>    
       <div class="infosignup">
           <label for="last_name" class="nomdescases"> Nom</label>
-          <input type="text" class="form-control" id="last_name" placeholder="Entrer nom" value="<%= user.last_name %>" name="last_name" required>
+          <input type="text" class="form-control" id="last_name" placeholder="Entrer nom" value="<%= user.last_name %>" name="last_name" required aria-label="nom">
       </div>
       <div class="infosignup">
           <label for="email_ad" class="nomdescases">Adresse mail</label>
-          <input type="email" class="form-control" id="pwd" placeholder="Entrer email" value="<%= user.email_ad %>" name="email_ad" required>
+          <input type="email" class="form-control" id="pwd" placeholder="Entrer email" value="<%= user.email_ad %>" name="email_ad" required aria-label="email">
       </div>
       <div class="infosignup">
         <label for="user_name" class="nomdescases">Pseudo (nécessaire pour se connecter)</label>
-        <input type="text" class="form-control" id="pwd" placeholder="Entrer pseudo" value="<%= user.user_name %>" name="user_name" required>
+        <input type="text" class="form-control" id="pwd" placeholder="Entrer pseudo" value="<%= user.user_name %>" name="user_name" required aria-label="pseudo">
     </div>
       <div class="login">
       <button type="submit" class="btn btn-primary">Envoyer</button>

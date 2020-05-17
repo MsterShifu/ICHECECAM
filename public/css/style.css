@@ -5,6 +5,30 @@ body
     background-size: cover;
 }
 
+
+/* Gérer la couleur des liens/boutons */
+
+nav a:link {
+    text-decoration : none;
+}
+
+nav a:hover {
+    color : goldenrod;
+}
+
+nav a:active {
+    text-decoration: none;
+}
+
+nav a:visited{
+    text-decoration : none;
+}
+
+
+
+
+
+
 .boutonfooter {
         padding-left: 0px;
         list-style: none;
@@ -72,6 +96,24 @@ nav a { /*gère le logo skinfarmerz*/
     color: #d3d3d3;
 }
 
+.boutonheader {
+    list-style: none;
+    display : inline;
+}
+
+ul.boutonheader {
+    list-style: none;
+    display : inline-flex;
+}
+
+
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
 .skinfarmers {
     display: inline-block;
     padding-top: .3125rem;
@@ -175,6 +217,10 @@ form {
     border: 2rem; 
 }
 
+#infoleg {
+    font-size: smaller;
+}
+
 .pascompte {
     border-top: 1px solid#888;
     color: goldenrod; 
@@ -219,6 +265,12 @@ form {
     border: 1px solid #ced4da;
     border-radius: .25rem;
 }  
+
+.navigation1 {
+    padding: .5rem 1rem;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+}
 
 input.cases {
     text-align: center;
